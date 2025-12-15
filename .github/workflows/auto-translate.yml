@@ -1,0 +1,189 @@
+name: 自动翻译宏列表
+
+on:
+  push:
+    paths:
+      - 'games/**/macrolist.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opencc jq
+      
+      - name: Auto translate
+        run: |
+          # 语言索引映射
+          # 0=ENUS, 1=ENGB, 2=JA, 3=FR, 4=DE, 5=ES419, 6=ES, 7=IT
+          # 8=NL, 9=FRCA, 10=PT, 11=RU, 12=KO, 13=ZHT, 14=ZH, 15=PTBR
+          
+          # MyMemory API 语言代码
+          declare -A LANG_CODES=(
+            [0]="en" [1]="en" [2]="ja" [3]="fr" [4]="de" [5]="es" [6]="es" [7]="it"
+            [8]="nl" [9]="fr" [10]="pt" [11]="ru" [12]="ko" [13]="zh-TW" [14]="zh-CN" [15]="pt"
+          )
+          
+          translate_text() {
+            local text="$1"
+            local from_lang="$2"
+            local to_lang="$3"
+            
+            if [ -z "$text" ] || [ "$from_lang" == "$to_lang" ]; then
+              echo ""
+              return
+            fi
+            
+            # URL encode
+            local encoded=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$text'''))")
+            
+            # 调用 MyMemory API
+            local result=$(curl -s "https://api.mymemory.translated.net/get?q=$encoded&langpair=$from_lang|$to_lang")
+            local translated=$(echo "$result" | jq -r '.responseData.translatedText // empty')
+            
+            # 检查是否翻译成功
+            if [ -n "$translated" ] && [ "$translated" != "null" ]; then
+              echo "$translated"
+            else
+              echo ""
+            fi
+          }
+          
+          s2t_convert() {
+            echo "$1" | opencc -c s2t
+          }
+          
+          process_macrolist() {
+            local file="$1"
+            local tmp_file="${file}.tmp"
+            local modified=false
+            
+            # 读取宏数量
+            local macro_count=$(jq '.macros | length' "$file")
+            
+            for ((i=0; i<macro_count; i++)); do
+              # 处理 name 数组
+              for field in "name" "desc"; do
+                # 获取当前数组
+                local arr=$(jq -r ".macros[$i].$field // []" "$file")
+                
+                # 检查是否是数组
+                if ! echo "$arr" | jq -e 'type == "array"' > /dev/null 2>&1; then
+                  continue
+                fi
+                
+                # 获取数组长度
+                local arr_len=$(echo "$arr" | jq 'length')
+                if [ "$arr_len" -lt 16 ]; then
+                  continue
+                fi
+                
+                # 找源文本：优先中文(14)，其次英文(0)，再其他
+                local source_text=""
+                local source_lang=""
+                local source_idx=-1
+                
+                # 先检查中文(14)
+                source_text=$(echo "$arr" | jq -r '.[14] // empty')
+                if [ -n "$source_text" ]; then
+                  source_lang="zh-CN"
+                  source_idx=14
+                fi
+                
+                # 如果中文为空，检查英文(0)
+                if [ -z "$source_text" ]; then
+                  source_text=$(echo "$arr" | jq -r '.[0] // empty')
+                  if [ -n "$source_text" ]; then
+                    source_lang="en"
+                    source_idx=0
+                  fi
+                fi
+                
+                # 如果英文也为空，找第一个非空的
+                if [ -z "$source_text" ]; then
+                  for ((j=0; j<16; j++)); do
+                    local val=$(echo "$arr" | jq -r ".[$j] // empty")
+                    if [ -n "$val" ]; then
+                      source_text="$val"
+                      source_lang="${LANG_CODES[$j]}"
+                      source_idx=$j
+                      break
+                    fi
+                  done
+                fi
+                
+                # 如果没有源文本，跳过
+                if [ -z "$source_text" ]; then
+                  continue
+                fi
+                
+                echo "Processing $field for macro $i, source: $source_text ($source_lang)"
+                
+                # 遍历每个语言位置，填充空的
+                for ((j=0; j<16; j++)); do
+                  local current_val=$(echo "$arr" | jq -r ".[$j] // empty")
+                  
+                  # 如果已有值，跳过
+                  if [ -n "$current_val" ]; then
+                    continue
+                  fi
+                  
+                  local target_lang="${LANG_CODES[$j]}"
+                  local translated=""
+                  
+                  # 繁体中文(13)用 OpenCC 转换
+                  if [ "$j" -eq 13 ]; then
+                    if [ "$source_idx" -eq 14 ]; then
+                      translated=$(s2t_convert "$source_text")
+                      echo "  [13] ZHT: $translated (OpenCC)"
+                    else
+                      # 源不是简体，用翻译
+                      translated=$(translate_text "$source_text" "$source_lang" "zh-TW")
+                      echo "  [13] ZHT: $translated (API)"
+                    fi
+                  else
+                    # 其他语言用 API 翻译
+                    translated=$(translate_text "$source_text" "$source_lang" "$target_lang")
+                    echo "  [$j] $target_lang: $translated"
+                  fi
+                  
+                  # 更新 JSON
+                  if [ -n "$translated" ]; then
+                    jq ".macros[$i].$field[$j] = \"$translated\"" "$file" > "$tmp_file"
+                    mv "$tmp_file" "$file"
+                    modified=true
+                  fi
+                done
+              done
+            done
+            
+            echo "$modified"
+          }
+          
+          # 处理所有 macrolist.json
+          for f in games/*/macrolist.json; do
+            if [ -f "$f" ]; then
+              echo "=== Processing $f ==="
+              process_macrolist "$f"
+            fi
+          done
+      
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add games/*/macrolist.json
+          if git diff --quiet --cached; then
+            echo "No changes to commit"
+          else
+            git commit -m "工作流：自动翻译宏列表"
+            git push
+          fi
