@@ -1,0 +1,48 @@
+name: Build Index
+
+on:
+  push:
+    paths:
+      - 'games/**/macrolist.json'
+      - 'games/**/*.macro'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Generate gamelist.json
+        run: |
+          echo '{"version":1,"games":[' > gamelist.json
+          first=true
+          for f in games/*/macrolist.json; do
+            if [ -f "$f" ]; then
+              id=$(basename $(dirname "$f"))
+              count=$(jq '.macros | length' "$f")
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo ',' >> gamelist.json
+              fi
+              printf '{"id":"%s","count":%d}' "$id" "$count" >> gamelist.json
+            fi
+          done
+          echo ']}' >> gamelist.json
+          
+          # 格式化 JSON
+          jq '.' gamelist.json > gamelist_formatted.json
+          mv gamelist_formatted.json gamelist.json
+          
+      - name: Commit gamelist.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gamelist.json
+          if git diff --quiet --cached; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update gamelist.json"
+            git push
+          fi

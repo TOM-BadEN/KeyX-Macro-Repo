@@ -1,0 +1,17 @@
+{
+  "id": "0100F2C0115B6000",
+  "macros": [
+    {
+      "file": "tachi_combo.macro",
+      "name": "太刀连招",
+      "author": "KeyX",
+      "desc": "见切斩+登龙剑"
+    },
+    {
+      "file": "gs_charge.macro",
+      "name": "大剑蓄力",
+      "author": "KeyX",
+      "desc": "自动蓄力释放"
+    }
+  ]
+}

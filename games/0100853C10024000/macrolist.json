@@ -1,0 +1,11 @@
+{
+  "id": "0100853C10024000",
+  "macros": [
+    {
+      "file": "auto_hatch.macro",
+      "name": "自动孵蛋",
+      "author": "KeyX",
+      "desc": "自动骑车孵蛋"
+    }
+  ]
+}
