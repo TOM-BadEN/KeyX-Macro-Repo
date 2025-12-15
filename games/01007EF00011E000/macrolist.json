@@ -1,0 +1,10 @@
+{
+  "macros": [
+    {
+      "file": "FengDan.macro",
+      "name": "落差风弹",
+      "author": "Tom",
+      "desc": "站在台阶边缘，背朝台阶使用"
+    }
+  ]
+}
