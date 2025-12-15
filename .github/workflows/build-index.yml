@@ -7,6 +7,9 @@ on:
       - 'games/**/*.macro'
   workflow_dispatch:  # 允许手动触发
 
+permissions:
+  contents: write          # 允许写入仓库
+
 jobs:
   build:
     runs-on: ubuntu-latest
