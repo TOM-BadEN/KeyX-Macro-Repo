@@ -1,4 +1,4 @@
-name: Build Index
+name: 自动整理gamelist
 
 on:
   push:
@@ -46,6 +46,6 @@ jobs:
           if git diff --quiet --cached; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update gamelist.json"
+            git commit -m "工作流：自动更新 gamelist.json"
             git push
           fi
