@@ -12,7 +12,21 @@
         "站在臺階邊緣，背朝臺階使用",
         "Stand on the edge of the step with your back facing it"
       ],
-      "author": "Tom"
+      "author": "TOM"
+    },
+    {
+      "file": "Test.macro",
+      "name": [
+        "这是一个测试",
+        "",
+        "This is a test"
+      ],
+      "desc": [
+        "这是一个测试",
+        "",
+        "This is a test"
+      ],
+      "author": "TOM"
     }
   ]
 }
