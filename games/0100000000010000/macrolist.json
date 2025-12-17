@@ -1,0 +1,18 @@
+{
+  "macros": [
+    {
+      "file": "capDoubleJump.macro",
+      "name": [
+        "帽子二段跳",
+        "",
+        "Cap Double Jump"
+      ],
+      "desc": [
+        "投出帽子后跳跃并踩在帽子上弹跳\n直接使用即可，没有什么注意事项",
+        "",
+        "Jump onto the cap after throwing it for a bounce\nJust use it directly, no special requirements"
+      ],
+      "author": "TOM"
+    }
+  ]
+}
