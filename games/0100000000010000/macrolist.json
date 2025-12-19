@@ -22,9 +22,9 @@
         "Long Jump Double Jump"
       ],
       "desc": [
-        "先跑起来再使用宏就可以正确触发\n这个是平地的，如果是上坡会失败",
-        "先跑起來再使用宏就可以正確觸發\n這個是平地的，如果是上坡會失敗",
-        "First run, then use the macro, and it can be triggered correctly\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail."
+        "先跑起来再使用宏就可以正确触发\n这个是平地的，如果是上坡会失败\n如果你是先触发宏，再推摇杆，还可以当后空翻二段跳",
+        "",
+        "First run, then use the macro, and it can be triggered correctly\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail.\nIf you trigger the macro first and then push the analog stick, it can also be used as a backflip double jump."
       ],
       "author": "TOM"
     }
