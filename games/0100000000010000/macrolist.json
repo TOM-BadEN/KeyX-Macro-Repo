@@ -1,16 +1,30 @@
 {
   "macros": [
     {
-      "file": "capDoubleJump.macro",
+      "file": "DoubleJump.macro",
       "name": [
         "帽子二段跳",
         "帽子二段跳",
-        "Cap Double Jump"
+        "Double Jump"
       ],
       "desc": [
         "投出帽子后跳跃并踩在帽子上弹跳\n直接使用即可，没有什么注意事项",
         "投出帽子後跳躍並踩在帽子上彈跳\n直接使用即可，沒有什麼注意事項",
         "Jump onto the cap after throwing it for a bounce\nJust use it directly, no special requirements"
+      ],
+      "author": "TOM"
+    },
+    {
+      "file": "LongJumpDoubleJump.macro",
+      "name": [
+        "大跳二段跳",
+        "",
+        "Long Jump Double Jump"
+      ],
+      "desc": [
+        "先跑起来再使用宏就可以正确触发\n这个是平地的，如果是上坡会失败",
+        "",
+        "First run, then use the macro, and it can be triggered correctly\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail."
       ],
       "author": "TOM"
     }
