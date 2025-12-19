@@ -27,6 +27,20 @@
         "First run, then use the macro, and it can be triggered correctly\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail.\nIf you trigger the macro first and then push the analog stick, it can also be used as a backflip double jump."
       ],
       "author": "TOM"
+    },
+    {
+      "file": "SideSomersaultDoubleJump.macro",
+      "name": [
+        "后空翻二段跳",
+        "",
+        "Side Somersault Double Jump"
+      ],
+      "desc": [
+        "先触发宏，跳起来立马推摇杆，就能实现后空翻二段跳\n如果你先跑起来，再触发宏，还可以当大跳二段跳",
+        "",
+        "Trigger the macro first, jump, and immediately push the analog stick to perform a backflip double jump\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail.\nIf you start running first and then trigger the macro, it can also be used as a long jump double jump"
+      ],
+      "author": "TOM"
     }
   ]
 }
