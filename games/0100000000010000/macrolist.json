@@ -18,12 +18,12 @@
       "file": "LongJumpDoubleJump.macro",
       "name": [
         "大跳二段跳",
-        "",
+        "大跳二段跳",
         "Long Jump Double Jump"
       ],
       "desc": [
         "先跑起来再使用宏就可以正确触发\n这个是平地的，如果是上坡会失败",
-        "",
+        "先跑起來再使用宏就可以正確觸發\n這個是平地的，如果是上坡會失敗",
         "First run, then use the macro, and it can be triggered correctly\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail."
       ],
       "author": "TOM"
