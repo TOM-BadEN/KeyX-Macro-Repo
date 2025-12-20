@@ -13,6 +13,20 @@
         "You must have a bow equipped\nStand on the edge of the step with your back facing it"
       ],
       "author": "TOM"
+    },
+    {
+      "file": "BombTCR.macro",
+      "name": [
+        "下蛋飞雷神",
+        "",
+        "Bomb Thunderclap Rush"
+      ],
+      "desc": [
+        "用下蛋接前跳、引爆、再加后空翻的方式，提高腾空高度，从而触发飞雷神。\n触发宏后，不要有额外操作，等突袭Y键标识出来即可",
+        "",
+        "Use drop egg to connect forward jump, detonate, and then backflip method, increase aerial height, thus trigger Flying Thunder God\nAfter triggering the macro, do not perform extra actions, just wait until the Flurry Rush Y button indicator appears"
+      ],
+      "author": "TOM"
     }
   ]
 }
