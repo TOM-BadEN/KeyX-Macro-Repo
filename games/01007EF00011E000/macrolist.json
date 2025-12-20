@@ -4,12 +4,12 @@
       "file": "DropWindBomb.macro",
       "name": [
         "落差风弹",
-        "",
+        "落差風彈",
         "Drop Wind Bomb"
       ],
       "desc": [
         "身上必须装备了弓箭\n站在台阶边缘，背朝台阶使用",
-        "",
+        "身上必須裝備了弓箭\n站在臺階邊緣，背朝臺階使用",
         "You must have a bow equipped\nStand on the edge of the step with your back facing it"
       ],
       "author": "TOM"
