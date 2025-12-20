@@ -60,12 +60,12 @@
       "file": "Long&SpinCup2Jump.macro",
       "name": [
         "大跳彩虹二段跳",
-        "",
+        "大跳彩虹二段跳",
         "Long&Spin Cup 2Jump"
       ],
       "desc": [
         "先跑起来再使用宏就可以正确触发\n不可以对上坡使用\n如果你是先触发宏，再推摇杆，还可以当后空翻彩虹二段跳",
-        "",
+        "先跑起來再使用宏就可以正確觸發\n不可以對上坡使用\n如果你是先觸發宏，再推搖桿，還可以當後空翻彩虹二段跳",
         "First run, then use the macro, and it can be triggered correctly\nCannot be used on uphill slopes\nIf you trigger the macro first and then push the analog stick, it can also be used as a somersault spin double jump"
       ],
       "author": "TOM"
@@ -74,12 +74,12 @@
       "file": "Somersault&SpinCup2Jump.macro",
       "name": [
         "后空翻彩虹二段跳",
-        "",
+        "後空翻彩虹二段跳",
         "Somersault & Spin Cup 2Jump"
       ],
       "desc": [
         "先触发宏，跳起来立马推摇杆，就能实现后空翻彩虹二段跳\n如果你先跑起来，再触发宏，还可以当大跳彩虹二段跳",
-        "",
+        "先觸發宏，跳起來立馬推搖桿，就能實現後空翻彩虹二段跳\n如果你先跑起來，再觸發宏，還可以當大跳彩虹二段跳",
         "Trigger the macro first, jump, and immediately push the analog stick to perform a somersault spin double jump\nIf you start running first and then trigger the macro, it can also be used as a long spin double jump"
       ],
       "author": "TOM"
