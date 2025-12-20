@@ -46,12 +46,12 @@
       "file": "SpinDoubleJump.macro",
       "name": [
         "彩虹二段跳",
-        "",
+        "彩虹二段跳",
         "Spin Double Jump"
       ],
       "desc": [
         "先跑起来再使用宏就可以正确触发\n帽子二段跳中间插一个B键的旋转",
-        "",
+        "先跑起來再使用宏就可以正確觸發\n帽子二段跳中間插一個B鍵的旋轉",
         "First run, then use the macro, and it can be triggered correctly\nInsert a B-button spin between the two jumps of a cap jump"
       ],
       "author": "TOM"
