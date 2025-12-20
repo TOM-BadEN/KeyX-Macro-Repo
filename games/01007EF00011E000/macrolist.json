@@ -27,6 +27,20 @@
         "Use drop egg to connect forward jump, detonate, and then backflip method, increase aerial height, thus trigger Flying Thunder God\nAfter triggering the macro, do not perform extra actions, just wait until the Flurry Rush Y button indicator appears"
       ],
       "author": "TOM"
+    },
+    {
+      "file": "AerialWindBomb.macro",
+      "name": [
+        "空中接力风弹",
+        "",
+        "Aerial Wind Bomb"
+      ],
+      "desc": [
+        "当你飘在空中不在有位移时使用\n可以通过观察滑翔伞尾翼的气流判断\n宏里面已经处理了摇杆，所以除了宏什么都别按",
+        "",
+        "Use when you are floating in the air without any movement\nYou can judge by observing the airflow at the tail of the glider\nThe macro has already handled the joystick, so do not press anything else except the macro"
+      ],
+      "author": "TOM"
     }
   ]
 }
