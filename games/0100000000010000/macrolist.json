@@ -41,6 +41,20 @@
         "Trigger the macro first, jump, and immediately push the analog stick to perform a backflip double jump\nThis is a flat-ground macro. If it is used on an uphill slope, it will fail.\nIf you start running first and then trigger the macro, it can also be used as a long jump double jump"
       ],
       "author": "TOM"
+    },
+    {
+      "file": "SpinDoubleJump.macro",
+      "name": [
+        "彩虹二段跳",
+        "",
+        "Spin Double Jump"
+      ],
+      "desc": [
+        "先跑起来再使用宏就可以正确触发\n帽子二段跳中间插一个B键的旋转",
+        "",
+        "First run, then use the macro, and it can be triggered correctly\nInsert a B-button spin between the two jumps of a cap jump"
+      ],
+      "author": "TOM"
     }
   ]
 }
