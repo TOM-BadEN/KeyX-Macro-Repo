@@ -32,12 +32,12 @@
       "file": "AerialWindBomb.macro",
       "name": [
         "空中接力风弹",
-        "",
+        "空中接力風彈",
         "Aerial Wind Bomb"
       ],
       "desc": [
         "需要先选好圆形炸弹\n当你飘在空中不在有位移时使用\n可以通过观察滑翔伞尾翼的气流判断\n宏里面已经处理了摇杆，所以除了宏什么都别按",
-        "",
+        "需要先選好圓形炸彈\n當你飄在空中不在有位移時使用\n可以通過觀察滑翔傘尾翼的氣流判斷\n宏裏面已經處理了搖桿，所以除了宏什麼都別按",
         "Make sure the round bomb is selected first\nUse when you are floating in the air without any movement\nYou can judge by observing the airflow at the tail of the glider\nThe macro has already handled the joystick, so do not press anything else except the macro"
       ],
       "author": "TOM"
