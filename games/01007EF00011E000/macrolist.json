@@ -4,12 +4,12 @@
       "file": "DropWindBomb.macro",
       "name": [
         "落差风弹",
-        "落差風彈",
+        "",
         "Drop Wind Bomb"
       ],
       "desc": [
-        "身上必须装备了弓箭\n站在台阶边缘，背朝台阶使用\n无需实现选好炸弹",
-        "身上必須裝備了弓箭\n站在臺階邊緣，背朝臺階使用\n無需實現選好炸彈",
+        "身上必须装备了弓箭\n站在台阶边缘，背朝台阶使用\n无需事先选好炸弹",
+        "",
         "You must have a bow equipped\nStand on the edge of the step with your back facing it\nNo need to pre‑select the bomb"
       ],
       "author": "TOM"
@@ -18,13 +18,13 @@
       "file": "BombTCR.macro",
       "name": [
         "下蛋飞雷神",
-        "下蛋飛雷神",
+        "",
         "Bomb Thunderclap Rush"
       ],
       "desc": [
-        "用下蛋接前跳、引爆、再加后空翻的方式，提高腾空高度，从而触发飞雷神。\n触发宏后，不要有额外操作，等突袭Y键标识出来即可",
-        "用下蛋接前跳、引爆、再加後空翻的方式，提高騰空高度，從而觸發飛雷神。\n觸發宏後，不要有額外操作，等突襲Y鍵標識出來即可",
-        "Use drop egg to connect forward jump, detonate, and then backflip method, increase aerial height, thus trigger Flying Thunder God\nAfter triggering the macro, do not perform extra actions, just wait until the Flurry Rush Y button indicator appears"
+        "只支持单手武器，身上要装备了盾牌\n用下蛋接前跳、引爆、再加后空翻的方式，提高腾空高度，从而触发飞雷神。\n触发宏后，不要有额外操作，等突袭Y键标识出来即可",
+        "",
+        "Only one-handed weapons are supported, and a shield must be equipped\nUse drop egg to connect forward jump, detonate, and then backflip method, increase aerial height, thus trigger Flying Thunder God\nAfter triggering the macro, do not perform extra actions, just wait until the Flurry Rush Y button indicator appears"
       ],
       "author": "TOM"
     },
